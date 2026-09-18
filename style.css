@@ -1,412 +1,161 @@
+
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GHST EYEWEAR | Handcrafted Australian Spectacles - Coming Soon</title>
+    <title>GHST EYEWEAR — Launching Soon | ghsteyewear.com.au</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Cormorant Garamond for editorial serif headers & Inter for modern sans body -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,600;0,800;1,300&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                        display: ['Syne', 'sans-serif'],
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
                     },
                     colors: {
-                        ghst: {
-                            50: '#f6f6f6',
-                            100: '#e7e7e7',
-                            800: '#18181b',
-                            900: '#0f0f11',
-                            950: '#050506',
-                            gold: '#d4af37',
-                        }
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-glow': 'pulseGlow 3s infinite',
-                        'lens-shimmer': 'lensShimmer 8s linear infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
-                            '50%': { transform: 'translateY(-12px) rotate(1.5deg)' },
-                        },
-                        pulseGlow: {
-                            '0%, 100%': { opacity: 0.3, transform: 'scale(1)' },
-                            '50%': { opacity: 0.6, transform: 'scale(1.05)' },
-                        },
-                        lensShimmer: {
-                            '0%': { transform: 'translateX(-100%)' },
-                            '100%': { transform: 'translateX(200%)' }
+                        sand: {
+                            50: '#fbfaf8',
+                            100: '#f5f3ee',
+                            200: '#e8e4da',
+                            300: '#d8d0c0',
+                            800: '#3a3630',
+                            900: '#1c1a17',
                         }
                     }
                 }
             }
         }
     </script>
-
-    <!-- Custom CSS for specific visual effects -->
     <style>
         body {
-            background-color: #050506;
-            color: #f6f6f6;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            overflow-x: hidden;
+            background-color: #f6f5f2;
+            color: #1c1a17;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
         }
-
-        /* Subtle mesh background noise/gradient */
-        .bg-mesh {
-            background-image: 
-                radial-gradient(at 50% 20%, rgba(212, 175, 55, 0.08) 0px, transparent 50%),
-                radial-gradient(at 80% 0%, rgba(255, 255, 255, 0.05) 0px, transparent 40%),
-                radial-gradient(at 10% 80%, rgba(40, 40, 50, 0.3) 0px, transparent 60%);
+        .editorial-title {
+            font-family: 'Cormorant Garamond', serif;
         }
-
-        /* Glassmorphism card utility */
-        .glass-card {
-            background: rgba(18, 18, 22, 0.65);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .glass-pill {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-        }
-
-        /* Custom glow effects for interactive glasses model */
-        .glow-overlay {
-            box-shadow: 0 0 50px -10px rgba(212, 175, 55, 0.25);
-        }
-
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #050506;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #27272a;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #3f3f46;
+        /* Custom subtle focus style */
+        input:focus {
+            outline: none;
+            border-color: #1c1a17 !important;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-white selection:text-black bg-mesh relative">
+<body class="min-h-screen flex flex-col justify-between items-center text-center selection:bg-sand-200 selection:text-sand-900">
 
-    <!-- NAVIGATION / HEADER -->
-    <header class="w-full max-w-7xl mx-auto px-6 py-6 sm:py-8 flex items-center justify-between z-30 relative">
-        <a href="#" class="flex items-center gap-2 group">
-            <span class="font-display text-2xl sm:text-3xl font-extrabold tracking-widest text-white uppercase group-hover:text-ghst-gold transition-colors duration-300">
-                GHSTEyewear<span class="text-xs sm:text-sm font-light tracking-normal text-zinc-400 ml-0.5">.com.au</span>
-            </span>
-        </a>
-
-        <div class="flex items-center gap-3">
-            <span class="inline-flex items-center gap-2 glass-pill px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-zinc-300">
-                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                AUSTRALIA
-            </span>
-            <a href="#notify" class="hidden sm:inline-flex items-center gap-2 bg-white text-black hover:bg-zinc-200 text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full transition duration-300 shadow-md hover:shadow-white/10">
-                Get Notified
-            </a>
+    <!-- Navigation / Header -->
+    <header class="w-full pt-8 pb-6 px-6 sm:px-12 md:px-16 flex flex-col items-center justify-center gap-2 z-10 text-center">
+        <div class="tracking-widest lowercase text-xs sm:text-sm font-medium text-sand-800">
+            ghsteyewear.com.au
+        </div>
+        <div class="text-[10px] sm:text-xs tracking-widest uppercase text-sand-800/60 font-light">
+            Australia / 2026 Debut
         </div>
     </header>
 
-    <!-- MAIN HERO SECTION -->
-    <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-6 md:py-12 flex-grow flex flex-col justify-center relative z-20">
+    <!-- Main Content Container -->
+    <main class="flex-grow w-full max-w-5xl px-6 sm:px-12 md:px-16 py-8 sm:py-12 flex flex-col items-center justify-center space-y-10 text-center">
         
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            
-            <!-- LEFT COLUMN: Content & Form -->
-            <div class="lg:col-span-6 space-y-6 lg:space-y-8 text-center lg:text-left order-1">
-                
-                <div class="inline-flex items-center gap-2 glass-pill px-4 py-1.5 rounded-full text-xs font-medium text-ghst-gold border-ghst-gold/30">
-                    <i class="fa-solid fa-sparkles text-xs"></i>
-                    GHSTEYEWEAR.COM.AU
-                </div>
-
-                <h1 class="font-display text-4xl sm:text-6xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight text-white leading-[1.05] break-words">
-                    COMING <br class="hidden sm:inline">
-                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-white via-zinc-300 to-zinc-500">
-                        SOON.
-                    </span>
-                </h1>
-
-                <p class="text-zinc-400 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
-                    Handcrafted premium eyewear designed in Melbourne. Engineered with Italian acetate, UV400 precision optics, and architectural silhouettes built to last.
-                </p>
-
-                <!-- Newsletter Subscription Box -->
-                <div id="notify" class="pt-2 max-w-md mx-auto lg:mx-0">
-                    <form id="subscribe-form" onsubmit="handleSubscribe(event)" class="relative flex flex-col sm:flex-row gap-2">
-                        <input 
-                            type="email" 
-                            id="email-input"
-                            required
-                            placeholder="Enter your email address" 
-                            class="w-full bg-zinc-900/90 border border-zinc-800 focus:border-white text-white text-sm rounded-xl px-4 py-3.5 focus:outline-none transition duration-300 placeholder:text-zinc-500"
-                        >
-                        <button 
-                            type="submit"
-                            id="submit-btn"
-                            class="whitespace-nowrap bg-white hover:bg-zinc-200 text-black font-bold text-sm px-6 py-3.5 rounded-xl transition duration-300 flex items-center justify-center gap-2 group cursor-pointer"
-                        >
-                            <span>Join Waitlist</span>
-                            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
-                        </button>
-                    </form>
-                    <p class="text-[11px] text-zinc-500 mt-2.5 text-center lg:text-left flex items-center justify-center lg:justify-start gap-1.5">
-                        <i class="fa-solid fa-shield-halved text-emerald-500"></i>
-                        Be the first to know when launch opens in Australia. No spam.
-                    </p>
-                    
-                    <!-- Success Message Alert -->
-                    <div id="success-message" class="hidden mt-3 p-3 bg-emerald-950/60 border border-emerald-500/40 rounded-xl text-emerald-300 text-xs text-center flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-circle-check text-emerald-400 text-sm"></i>
-                        <span>You're on the list! We will notify you on launch day.</span>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- RIGHT COLUMN: Interactive High-Visibility Eyewear Showcase -->
-            <div class="lg:col-span-6 relative order-2 flex flex-col items-center justify-center my-4 lg:my-0">
-                
-                <!-- Background Radial Glow -->
-                <div class="absolute inset-0 bg-gradient-to-tr from-zinc-800/20 via-ghst-gold/15 to-transparent rounded-full filter blur-3xl opacity-60 animate-pulse-glow -z-10"></div>
-
-                <!-- Showcase Frame Box -->
-                <div class="w-full max-w-lg glass-card rounded-3xl p-6 sm:p-8 relative border border-white/10 shadow-2xl overflow-hidden group">
-                    
-                    <!-- Watermark / Subtle Tag -->
-                    <div class="flex justify-between items-center mb-4 text-xs font-mono text-zinc-400">
-                        <span id="model-tag">MODEL // GHST-01 [THE PHANTOM]</span>
-                        <span class="text-zinc-500 uppercase">Interactive Preview</span>
-                    </div>
-
-                    <!-- Eyewear Vector Visual (SVG with realistic glass reflections) -->
-                    <div class="relative py-10 sm:py-14 flex items-center justify-center animate-float cursor-pointer select-none" id="eyewear-container">
-                        
-                        <!-- Dynamic Sunglass SVG Graphics -->
-                        <svg id="eyewear-svg" class="w-full h-auto max-w-md filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.8)] transition-all duration-500" viewBox="0 0 800 350" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Frame Shadow -->
-                            <ellipse cx="400" cy="320" rx="320" ry="15" fill="black" fill-opacity="0.5" filter="blur(10px)"/>
-                            
-                            <!-- Left Temple Arm -->
-                            <path d="M 80,140 C 40,130 10,110 5,60" stroke="#18181b" stroke-width="14" stroke-linecap="round"/>
-                            <path d="M 80,140 C 40,130 10,110 5,60" stroke="#27272a" stroke-width="8" stroke-linecap="round"/>
-                            
-                            <!-- Right Temple Arm -->
-                            <path d="M 720,140 C 760,130 790,110 795,60" stroke="#18181b" stroke-width="14" stroke-linecap="round"/>
-                            <path d="M 720,140 C 760,130 790,110 795,60" stroke="#27272a" stroke-width="8" stroke-linecap="round"/>
-
-                            <!-- Bridge Connection -->
-                            <path d="M 350,115 Q 400,105 450,115" stroke="#18181b" stroke-width="22" stroke-linecap="round"/>
-                            <path d="M 350,115 Q 400,105 450,115" stroke="#d4af37" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
-
-                            <!-- Left Lens Body -->
-                            <path id="left-lens" d="M 120,110 C 200,90 320,100 350,130 C 360,180 340,260 250,270 C 160,280 100,210 120,110 Z" 
-                                  fill="url(#lens-gradient-dark)" stroke="#111113" stroke-width="18" stroke-linejoin="round"/>
-                            
-                            <!-- Right Lens Body -->
-                            <path id="right-lens" d="M 680,110 C 600,90 480,100 450,130 C 440,180 460,260 550,270 C 640,280 700,210 680,110 Z" 
-                                  fill="url(#lens-gradient-dark)" stroke="#111113" stroke-width="18" stroke-linejoin="round"/>
-
-                            <!-- Left Lens Highlight & Reflection -->
-                            <path d="M 140,125 C 200,110 290,120 320,140" stroke="white" stroke-width="6" stroke-linecap="round" opacity="0.4"/>
-                            <path d="M 150,145 C 190,135 240,140 270,155" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.2"/>
-
-                            <!-- Right Lens Highlight & Reflection -->
-                            <path d="M 660,125 C 600,110 510,120 480,140" stroke="white" stroke-width="6" stroke-linecap="round" opacity="0.4"/>
-                            <path d="M 650,145 C 610,135 560,140 530,155" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.2"/>
-
-                            <!-- Frame Gold Accents (Hinges) -->
-                            <circle cx="95" cy="130" r="4" fill="#d4af37" />
-                            <circle cx="705" cy="130" r="4" fill="#d4af37" />
-
-                            <!-- Lens Gradients Definitions -->
-                            <defs>
-                                <linearGradient id="lens-gradient-dark" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stop-color="#2a2a32" stop-opacity="0.95"/>
-                                    <stop offset="50%" stop-color="#111115" stop-opacity="0.98"/>
-                                    <stop offset="100%" stop-color="#050507" stop-opacity="1"/>
-                                </linearGradient>
-                                <linearGradient id="lens-gradient-amber" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stop-color="#d97706" stop-opacity="0.85"/>
-                                    <stop offset="60%" stop-color="#78350f" stop-opacity="0.95"/>
-                                    <stop offset="100%" stop-color="#1c1917" stop-opacity="1"/>
-                                </linearGradient>
-                                <linearGradient id="lens-gradient-cobalt" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stop-color="#2563eb" stop-opacity="0.85"/>
-                                    <stop offset="60%" stop-color="#1e3a8a" stop-opacity="0.95"/>
-                                    <stop offset="100%" stop-color="#0f172a" stop-opacity="1"/>
-                                </linearGradient>
-                                <linearGradient id="lens-gradient-emerald" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stop-color="#059669" stop-opacity="0.85"/>
-                                    <stop offset="60%" stop-color="#064e3b" stop-opacity="0.95"/>
-                                    <stop offset="100%" stop-color="#022c22" stop-opacity="1"/>
-                                </linearGradient>
-                            </defs>
-                        </svg>
-
-                        <!-- Subtle Hover Indicator Floating Badge -->
-                        <div class="absolute bottom-2 bg-black/70 backdrop-blur-md text-[11px] text-zinc-300 border border-white/10 px-3 py-1 rounded-full pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity flex items-center gap-1.5">
-                            <i class="fa-solid fa-arrows-rotate text-ghst-gold text-[10px]"></i>
-                            <span>Tap tint options below</span>
-                        </div>
-                    </div>
-
-                    <!-- Lens Tint Selector Control -->
-                    <div class="pt-2 border-t border-white/5 flex items-center justify-between">
-                        <span class="text-xs text-zinc-400 font-medium">Select Lens Tint:</span>
-                        <div class="flex items-center gap-2">
-                            <button onclick="setLensTint('dark', 'THE PHANTOM (OBSIDIAN)')" title="Obsidian Black" class="w-6 h-6 rounded-full bg-zinc-800 border-2 border-white/80 hover:scale-110 transition-transform focus:outline-none ring-2 ring-offset-2 ring-offset-black ring-transparent focus:ring-white"></button>
-                            <button onclick="setLensTint('amber', 'THE SPECTRE (AMBER GLOW)')" title="Amber Gold" class="w-6 h-6 rounded-full bg-amber-600 border-2 border-white/20 hover:scale-110 transition-transform focus:outline-none hover:border-white"></button>
-                            <button onclick="setLensTint('cobalt', 'THE ECLIPSE (COBALT BLUE)')" title="Cobalt Mirror" class="w-6 h-6 rounded-full bg-blue-600 border-2 border-white/20 hover:scale-110 transition-transform focus:outline-none hover:border-white"></button>
-                            <button onclick="setLensTint('emerald', 'THE AURA (EMERALD MINT)')" title="Emerald Tint" class="w-6 h-6 rounded-full bg-emerald-600 border-2 border-white/20 hover:scale-110 transition-transform focus:outline-none hover:border-white"></button>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
+        <!-- Header Text Section -->
+        <div class="space-y-4 max-w-2xl mx-auto flex flex-col items-center">
+            <span class="inline-block text-xs uppercase tracking-[0.25em] text-sand-800/80 font-medium bg-sand-200/60 px-3 py-1 rounded">
+                Launching Soon — Australia Exclusive
+            </span>
+            <h1 class="editorial-title text-5xl sm:text-6xl md:text-7xl font-light leading-[1.05] tracking-tight text-sand-900">
+                Coming Soon. <br/>
+                <span class="italic font-normal text-3xl sm:text-4xl md:text-5xl block pt-2 text-sand-800/90">Reframing the everyday view.</span>
+            </h1>
+            <p class="text-sm sm:text-base text-sand-800/80 font-light max-w-md leading-relaxed pt-2">
+                Designed for the Australian aesthetic and sun. Minimalist eyewear crafted with Japanese titanium and organic acetate. 
+            </p>
         </div>
 
-        <!-- BRAND SPECS / FEATURES GRID -->
-        <div class="mt-16 sm:mt-24 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 border-t border-white/10 pt-10">
+        <!-- Full Width Sunglass Image -->
+        <div class="w-full relative aspect-[16/9] sm:aspect-[21/9] overflow-hidden rounded-md bg-sand-200 group shadow-sm">
+            <img 
+                src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=1600&auto=format&fit=crop" 
+                alt="GHST Eyewear Lifestyle Preview" 
+                class="w-full h-full object-cover object-center grayscale-[20%] contrast-[105%] transition-transform duration-1000 ease-out group-hover:scale-105"
+                onerror="this.onerror=null; this.src='https://placehold.co/1600x900/e8e4da/1c1a17?text=ghsteyewear.com.au';"
+            />
+            <!-- Soft gradient overlay for editorial warmth -->
+            <div class="absolute inset-0 bg-sand-900/5 mix-blend-multiply pointer-events-none"></div>
             
-            <div class="glass-card p-5 rounded-2xl flex flex-col gap-2 hover:border-white/20 transition duration-300">
-                <i class="fa-solid fa-gem text-ghst-gold text-lg mb-1"></i>
-                <h3 class="font-display font-bold text-white text-sm sm:text-base">Mazzucchelli Acetate</h3>
-                <p class="text-zinc-400 text-xs font-light">Organic Italian bio-acetate frames built for strength and lightweight comfort.</p>
+            <!-- Frame Detail Tag -->
+            <div class="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 bg-sand-50/90 backdrop-blur-md px-4 py-2 rounded text-[11px] tracking-wider uppercase text-sand-900 font-light shadow-sm">
+                ghsteyewear.com.au — Edition 01
             </div>
+        </div>
 
-            <div class="glass-card p-5 rounded-2xl flex flex-col gap-2 hover:border-white/20 transition duration-300">
-                <i class="fa-solid fa-sun text-ghst-gold text-lg mb-1"></i>
-                <h3 class="font-display font-bold text-white text-sm sm:text-base">Category 3 UV400</h3>
-                <p class="text-zinc-400 text-xs font-light">Maximum glare reduction and 100% UVA/UVB protection engineered for AU sun.</p>
+        <!-- Email Signup Form -->
+        <div class="w-full max-w-md mx-auto">
+            <form id="waitlist-form" onsubmit="handleSubscribe(event)" class="space-y-4">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-0 border-b sm:border-sand-900/30 pb-1 transition-all duration-300 focus-within:border-sand-900">
+                    <input 
+                        type="email" 
+                        id="email-input" 
+                        required 
+                        placeholder="Enter your email address" 
+                        class="w-full bg-transparent py-3 sm:py-2 px-4 sm:px-0 text-center sm:text-left text-sm placeholder:text-sand-800/40 border sm:border-none border-sand-900/20 rounded-md sm:rounded-none font-light focus:ring-0"
+                    />
+                    <button 
+                        type="submit" 
+                        class="w-full sm:w-auto bg-sand-900 text-sand-50 hover:bg-sand-800 px-6 py-3 sm:py-2 text-xs uppercase tracking-widest font-medium transition-colors duration-300 rounded-md sm:rounded-none shrink-0"
+                    >
+                        Get Early Access
+                    </button>
+                </div>
+                <p class="text-[11px] text-sand-800/50 font-light text-center">
+                    Be first in Australia to access our limited introductory release.
+                </p>
+            </form>
+
+            <!-- Success Message Container -->
+            <div id="success-message" class="hidden py-4 px-5 bg-sand-100 border border-sand-200 rounded-lg space-y-1 text-center">
+                <p class="editorial-title text-lg font-medium text-sand-900">You are on the Australian guestlist.</p>
+                <p class="text-xs text-sand-800/70 font-light">We will send you private access prior to the official launch.</p>
             </div>
-
-            <div class="glass-card p-5 rounded-2xl flex flex-col gap-2 hover:border-white/20 transition duration-300">
-                <i class="fa-solid fa-screwdriver-wrench text-ghst-gold text-lg mb-1"></i>
-                <h3 class="font-display font-bold text-white text-sm sm:text-base">Japanese Hinges</h3>
-                <p class="text-zinc-400 text-xs font-light">Custom 7-barrel stainless steel barrel hinges for lifelong durable articulation.</p>
-            </div>
-
-            <div class="glass-card p-5 rounded-2xl flex flex-col gap-2 hover:border-white/20 transition duration-300">
-                <i class="fa-solid fa-truck-fast text-ghst-gold text-lg mb-1"></i>
-                <h3 class="font-display font-bold text-white text-sm sm:text-base">Express AU Shipping</h3>
-                <p class="text-zinc-400 text-xs font-light">Free express dispatch across Australia and New Zealand on all launch orders.</p>
-            </div>
-
         </div>
 
     </main>
 
-    <!-- FOOTER -->
-    <footer class="w-full max-w-7xl mx-auto px-6 py-8 border-t border-white/5 mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 z-20 relative">
-        <div class="flex items-center gap-4 text-zinc-500 text-xs">
-            <span>&copy; 2026 GHST EYEWEAR PTY LTD.</span>
-            <span class="hidden sm:inline">&bull;</span>
-            <span class="hidden sm:inline">GHSTEYEWEAR.COM.AU</span>
+    <!-- Minimalist Footer -->
+    <footer class="w-full py-6 px-6 sm:px-12 md:px-16 flex flex-col items-center justify-center text-center text-[11px] text-sand-800/50 font-light gap-2 border-t border-sand-200/60">
+        <div>
+            &copy; 2026 ghsteyewear.com.au. All rights reserved.
         </div>
-
-        <div class="flex items-center gap-6">
-            <a href="https://instagram.com" target="_blank" rel="noopener" class="text-zinc-400 hover:text-white text-base transition-colors" title="Instagram">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="https://tiktok.com" target="_blank" rel="noopener" class="text-zinc-400 hover:text-white text-base transition-colors" title="TikTok">
-                <i class="fa-brands fa-tiktok"></i>
-            </a>
-            <a href="https://pinterest.com" target="_blank" rel="noopener" class="text-zinc-400 hover:text-white text-base transition-colors" title="Pinterest">
-                <i class="fa-brands fa-pinterest"></i>
-            </a>
-            <a href="mailto:hello@ghsteyewear.com.au" class="text-zinc-400 hover:text-white text-base transition-colors" title="Contact Us">
-                <i class="fa-regular fa-envelope"></i>
-            </a>
+        <div class="tracking-widest uppercase">
+            Sydney — Melbourne — Byron Bay
         </div>
     </footer>
 
-    <!-- JAVASCRIPT LOGIC -->
     <script>
-
-        // 1. INTERACTIVE LENS TINT SWAPPER
-        function setLensTint(tintKey, modelName) {
-            const leftLens = document.getElementById('left-lens');
-            const rightLens = document.getElementById('right-lens');
-            const modelTag = document.getElementById('model-tag');
-
-            leftLens.setAttribute('fill', `url(#lens-gradient-${tintKey})`);
-            rightLens.setAttribute('fill', `url(#lens-gradient-${tintKey})`);
+        function handleSubscribe(event) {
+            event.preventDefault();
             
-            if (modelTag) {
-                modelTag.innerText = `MODEL // ${modelName}`;
-            }
-        }
-
-        // 2. FORM SUBSCRIPTION SIMULATION
-        function handleSubscribe(e) {
-            e.preventDefault();
-            const emailInput = document.getElementById('email-input');
-            const submitBtn = document.getElementById('submit-btn');
+            const form = document.getElementById('waitlist-form');
             const successMsg = document.getElementById('success-message');
+            const emailInput = document.getElementById('email-input');
 
-            if (emailInput && emailInput.value) {
-                // Disable button momentarily
-                submitBtn.disabled = true;
-                submitBtn.classList.add('opacity-75');
-                submitBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Processing...`;
-
+            if (emailInput.value.trim() !== '') {
+                // Smooth fade transition
+                form.style.opacity = '0';
                 setTimeout(() => {
-                    submitBtn.innerHTML = `<i class="fa-solid fa-check"></i> Joined`;
-                    submitBtn.classList.remove('bg-white', 'hover:bg-zinc-200');
-                    submitBtn.classList.add('bg-emerald-500', 'text-white');
-                    
-                    if (successMsg) {
-                        successMsg.classList.remove('hidden');
-                    }
-
-                    emailInput.value = '';
-                }, 800);
+                    form.classList.add('hidden');
+                    successMsg.classList.remove('hidden');
+                    successMsg.style.opacity = '1';
+                }, 300);
             }
-        }
-
-        // 3. PARALLAX TILT EFFECT ON EYEWEAR
-        const container = document.getElementById('eyewear-container');
-        const svg = document.getElementById('eyewear-svg');
-
-        if (container && svg) {
-            container.addEventListener('mousemove', (e) => {
-                const rect = container.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-
-                const rotateX = (-y / rect.height) * 15;
-                const rotateY = (x / rect.width) * 15;
-
-                svg.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
-            });
-
-            container.addEventListener('mouseleave', () => {
-                svg.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
-            });
         }
     </script>
 </body>
